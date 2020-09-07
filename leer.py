@@ -1,12 +1,12 @@
 import sys
 import os
-# import shutil
+
 from PIL import Image
 
 # 1.- use sys to grab first and second argumatn
 dir1 = sys.argv[1]
 dir2 = sys.argv[2]
-print('directorio origen:' + dir1 + ', directorio destino:' + dir2)
+#print('directorio origen:' + dir1 + ', directorio destino:' + dir2)
 
 
 # 2.- # check if exist, if not created new dir
