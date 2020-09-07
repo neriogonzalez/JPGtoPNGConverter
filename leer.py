@@ -26,9 +26,6 @@ os.chdir(var_path)
 # files = [f for f in os.listdir('.') if os.path.isfile(f)]
 
 
-if not os.path.exists(dir1):
-    os.mkdir(dir1)
-
 if not os.path.exists(dir2):
     os.mkdir(dir2)
 
