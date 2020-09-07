@@ -1,46 +1,19 @@
 import sys
 import os
-import re
+
 from PIL import Image
 
+# 1.- use sys to grab first and second argumatn
+dir1 = sys.argv[1]
+dir2 = sys.argv[2]
 
-# Expresión regular
+# 2.- Verifica y crea el directorio de destino
+if not os.path.exists(dir2):
+    os.mkdir(dir2)
 
-# re para directorio windows ^[a-zA-Z]:\\[\\\S|*\S]?.*$
-pattern = re.compiler(r"[A-Z a-z 0-9 #$@%]{8,}\d")
-
-string = "super$secret1@%#$2"
-
-a = pattern.fullsearch(string)qq
-print(a)
-
-# Fin de Expresión regular
-
-# agregando un comentario2
-# grab first and  second argument
-param = input('Ingresa directorios a utilizar: ')
-b = 0
-
-
-# check if new existe, if not create it
-
- try:
-        # Create target Directory
-        os.mkdir(dirName)
-        print("Directory ", dirName,  " Created ")
-    except FileExistsError:
-        print("Directory " , dirName ,  " already exists")        
-    
-    # Create target Directory if don't exist
-    if not os.path.exists(dirName):
-        os.mkdir(dirName)
-        print("Directory " , dirName ,  " Created ")
-    else:    
-        print("Directory " , dirName ,  " already exists")
-
-
-#    loop on pokedex 
-
-# conver image to png
-
-# save to the new folder
+# 3.- loop into pokedex, convert images, move to new folder
+for file_name in os.listdir(dir1):
+    img = Image.open(f'{dir1}{file_name}')
+    nuevo_nombre = os.path.splitext(file_name)
+    img.save(f'{dir2}{nuevo_nombre[0]}.png', 'PNG')
+    print(f'All done')
